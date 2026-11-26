@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Cancerwise - Cancer Awareness & Early Detection | School Project</title>
+  <style>
+    :root {
+      --primary: #0f766e;
+      --primary-dark: #115e59;
+      --accent: #e11d48;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      margin-left: 1.25rem;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0f766e 0%, #134e4a 100%);
+      color: #ffffff;
+      padding: 4.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ffffff;
+      color: var(--primary-dark);
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Main Container & Sections */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      font-size: 1.85rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 750px;
+      margin-bottom: 2rem;
+    }
+
+    /* Cards Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .card li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Highlight Banner */
+    .callout {
+      background: #f0fdfa;
+      border-left: 4px solid var(--primary);
+      padding: 1.25rem 1.5rem;
+      border-radius: 6px;
+      margin-top: 1.5rem;
+    }
+
+    /* Responsive YouTube Videos */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .video-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-caption {
+      padding: 1rem 1.25rem;
+    }
+
+    .video-caption h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .video-caption p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      nav a {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">Hope &amp; Awareness</a>
+      <nav>
+        <a href="#early-detection">Early Detection</a>
+        <a href="#types">Types</a>
+        <a href="#causes-symptoms">Causes &amp; Symptoms</a>
+        <a href="#prevention">Prevention</a>
+        <a href="#videos">Our Videos</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Knowledge Saves Lives: Cancer Awareness &amp; Early Detection</h1>
+      <p>Understanding risk factors, recognizing early warning signs, and adopting healthy habits can dramatically improve survival rates.</p>
+      <a href="#videos" class="btn">Watch Our Awareness Videos</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Section 1: Importance of Early Detection -->
+    <section id="early-detection">
+      <h2>Why Early Detection Matters</h2>
+      <p class="section-intro">
+        Cancer occurs when abnormal cells divide uncontrollably and invade nearby tissues. Detecting cancer at an early stage—before it spreads—makes treatment significantly more effective and less invasive.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Higher Survival Rates</h3>
+          <p>When diagnosed at Stage 1 or Stage 2, survival rates for many common cancers (such as breast, cervical, and colorectal cancer) exceed 80–90%.</p>
+        </div>
+        <div class="card">
+          <h3>Less Aggressive Treatment</h3>
+          <p>Localized tumors often require simpler procedures and fewer rounds of chemotherapy or radiation compared to advanced-stage disease.</p>
+        </div>
+        <div class="card">
+          <h3>Routine Screening</h3>
+          <p>Regular medical checkups, self-examinations, and recommended screenings can spot precancerous changes even before symptoms appear.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Key Takeaway:</strong> Never ignore persistent, unexplained changes in your body. Early medical consultation turns uncertainty into timely action.
+      </div>
+    </section>
+
+    <!-- Section 2: Common Types of Cancer -->
+    <section id="types">
+      <h2>Common Types of Cancer</h2>
+      <p class="section-intro">
+        Cancers are named after the organ or type of cell where they originate. Here are four major categories frequently highlighted in public health awareness:
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Breast Cancer</h3>
+          <p>Forms in the cells of the breasts. Regular self-checks and mammograms help detect lumps or tissue changes early.</p>
+        </div>
+        <div class="card">
+          <h3>Lung Cancer</h3>
+          <p>Begins in the lungs and is strongly linked to tobacco smoke and air pollutants, though non-smokers can also be affected.</p>
+        </div>
+        <div class="card">
+          <h3>Oral &amp; Throat Cancer</h3>
+          <p>Develops on the lips, tongue, gums, or throat. Closely associated with tobacco chewing, smoking, and betel nut use.</p>
+        </div>
+        <div class="card">
+          <h3>Colorectal &amp; Skin Cancers</h3>
+          <p>Colorectal cancer affects the colon or rectum, while skin cancer (such as melanoma) is primarily driven by ultraviolet (UV) exposure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Causes & Warning Symptoms -->
+    <section id="causes-symptoms">
+      <h2>Causes &amp; Early Warning Symptoms</h2>
+      <p class="section-intro">
+        While some genetic factors cannot be changed, environmental and lifestyle triggers account for a large share of preventable cancers.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Major Causes &amp; Risk Factors</h3>
+          <ul>
+            <li><strong>Tobacco &amp; Alcohol:</strong> Leading preventable causes of lung, mouth, throat, and liver cancers.</li>
+            <li><strong>UV &amp; Radiation Exposure:</strong> Excessive unprotected sunlight or tanning beds damage skin cell DNA.</li>
+            <li><strong>Infections:</strong> Viruses such as HPV (Human Papillomavirus) and Hepatitis B/C increase specific cancer risks.</li>
+            <li><strong>Lifestyle &amp; Genetics:</strong> Obesity, poor diet, physical inactivity, and inherited gene mutations.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Warning Signs to Watch For</h3>
+          <ul>
+            <li>Unexplained weight loss or persistent, extreme fatigue.</li>
+            <li>A new lump, thickening, or swelling anywhere on the body.</li>
+            <li>Sores, mouth ulcers, or skin moles that change shape or fail to heal.</li>
+            <li>Persistent cough, hoarseness, or difficulty swallowing.</li>
+            <li>Unusual bleeding, bruising, or lasting changes in bowel/bladder habits.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Prevention -->
+    <section id="prevention">
+      <h2>How to Reduce Your Risk</h2>
+      <p class="section-intro">
+        According to the World Health Organization (WHO), between 30% and 50% of all cancers are preventable through healthy daily choices and vaccination.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>1. Avoid All Tobacco</h3>
+          <p>Stay completely away from cigarettes, vaping, and smokeless tobacco, and avoid secondhand smoke.</p>
+        </div>
+        <div class="card">
+          <h3>2. Eat Balanced &amp; Stay Active</h3>
+          <p>Prioritize fruits, vegetables, whole grains, and legumes while limiting processed meats and sugary drinks. Aim for 30+ minutes of daily exercise.</p>
+        </div>
+        <div class="card">
+          <h3>3. Get Vaccinated</h3>
+          <p>The <strong>HPV vaccine</strong> and <strong>Hepatitis B vaccine</strong> protect against viral infections that can lead to cervical and liver cancers.</p>
+        </div>
+        <div class="card">
+          <h3>4. Protect Your Skin</h3>
+          <p>Use broad-spectrum sunscreen, wear protective clothing, and avoid harsh midday sun exposure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Embedded YouTube Videos -->
+    <section id="videos">
+      <h2>Our Awareness Videos</h2>
+      <p class="section-intro">
+        Watch the educational videos created by our team to learn more about symptoms, myths vs. facts, and early screening.
+      </p>
+      <div class="video-grid">
+
+        <!-- Video Slot 1 -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <!-- REPLACE 'VIDEO_ID_1' BELOW WITH YOUR ACTUAL YOUTUBE VIDEO ID -->
+            <iframe src="https://youtu.be/kBUgXOodTgg?si=ys03BsEKbeyaWuPp" title="Introduction to Cancer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-caption">
+            <h3>Part 1: Understanding Cancer &amp; Early Detection</h3>
+            <p>An overview of how early screening improves recovery outcomes.</p>
+          </div>
+        </div>
+
+        <!-- Video Slot 2 -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <!-- REPLACE 'VIDEO_ID_2' BELOW WITH YOUR ACTUAL YOUTUBE VIDEO ID -->
+            <iframe src="https://youtu.be/9CAEpZ7z3HM?si=6Zkgy6eB3VCXRD0P" title="5 Types of Cancer Explained" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-caption">
+            <h3>Part 2: Recognizing Early Warning Signs</h3>
+            <p>Key symptoms you should never ignore and when to see a doctor.</p>
+          </div>
+        </div>
+
+        <!-- Video Slot 3 -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <!-- REPLACE 'VIDEO_ID_3' BELOW WITH YOUR ACTUAL YOUTUBE VIDEO ID -->
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Cancer Awareness Video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="video-caption">
+            <h3>Part 3: Daily Prevention Habits</h3>
+            <p>Simple lifestyle steps and vaccinations that lower cancer risk.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>Created for our School Health &amp; Science Awareness Project | Educational Purposes Only — Always consult a qualified doctor for medical advice.</p>
+  </footer>
+
+</body>
+</html>
